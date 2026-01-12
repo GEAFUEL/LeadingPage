@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,700,0..100;1,9..144,700,0..100&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,600;1,17..18,600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100% !important;
+    font-family: 'Google Sans', sans-serif;
+}
+
+.nav {
+    margin-top: 0;
+    background: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(5px);
+    padding: 1rem;
+
+    /* Borda */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+
+    /* Posição */
+    position: fixed;
+    top: 20px;
+    left: 30px;
+    right: 30px;
+
+    /* Largura e altura */
+    height: px;
+
+
+    /* Layout */
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+
+    /* Espaçamento */
+    padding: auto;
+    color: black;
+}
+
+
+.ul-nav {
+    font-family: Google Sans;
+    display: flex;
+    list-style-type: none;
+
+    margin: 0;
+    padding: 20px;
+    gap: 30px;
+    /* transform: translateX(-200px); */
+}
+
+.ul-nav li {
+    cursor: pointer;
+    transition: color 0.3s ease;
+    /* background: red; */
+    padding: 15px 15px 15px 15px;
+    border-radius: 8px;
+}
+
+.ul-nav li:hover {
+    color: #aaa; /* Cor ao passar o mouse */
+}
+
+
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-img {
+    height: 90px;
+    width: auto;
+    display: block;
+}
+
+.logo-wrapper h2 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-family: Fraunces;
+
+    border-right: 2px solid rgba(63, 63, 63, 1);
+    padding-right: 25px;
+}
+
+
+
+
+body {
+    background-color:rgb(255, 255, 255);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 200px;
+    color: gray;
+}
+
+/* --- Estilos do MAIN --- */
+.main-content {
+    /* Opcional: Uma cor de fundo diferente para separar do header */
+    min-height: 80vh; /* Garante que o main ocupe boa parte da tela */
+}
+
+/* --- Container do GIF --- */
+.hero-container {
+    display: flex;
+    justify-content: center; /* Centraliza na horizontal (esquerda/direita) */
+    align-items: center;     /* Centraliza na vertical (topo/baixo) */
+    padding: 40px 0;         /* Um respiro em cima e embaixo */
+}
+
+/* --- Estilo da Imagem (GIF) --- */
+.hero-gif {
+    /* DICA DE OURO: Responsividade */
+    max-width: 100%;  /* A imagem nunca será maior que a tela */
+    height: auto;     /* A altura se ajusta automaticamente */
+    
+    /* Opcional: Sombra suave para destacar o GIF do fundo */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border-radius: 30px; /* Cantos arredondados, se combinar com o design */
+}
+
+
+
+
+
+
+
+/* --- ADAPTAÇÃO PARA MOBILE (Telas menores que 1000px) --- */
+@media (max-width: 1080px) {
+    
+    .nav {
+        /* 1. Solta as amarras laterais para ganhar espaço */
+        left: 10px;  
+        right: 10px; 
+        top: 10px;
+        padding: 15px 10px; /* Menos padding interno */
+        
+        /* 2. Empilha: Logo em cima, Links embaixo */
+        flex-direction: column; 
+        height: auto; /* Altura automática para caber tudo */
+    }
+
+    .logo-wrapper {
+        /* 3. Centraliza o logo e o texto */
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 15px; /* Espaço para separar dos links abaixo */
+    }
+
+    .logo-wrapper h2 {
+        /* 4. Remove a linha lateral (o pipe |) que fica estranha no mobile */
+        border-right: none;
+        padding-right: 0;
+        
+        /* Ajuste de texto para não quebrar feio */
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    .ul-nav {
+        /* 5. Ajusta a lista de links */
+        padding: 0;
+        gap: 10px; /* Diminui o espaço entre os links */
+        
+        /* Permite que os links "quebrem" para a linha de baixo se faltar espaço */
+        flex-wrap: wrap; 
+        justify-content: center; /* Centraliza os links */
+        width: 100%;
+    }
+
+    .ul-nav li {
+        /* 6. Deixa os botões de link mais compactos */
+        padding: 8px 12px;
+        font-size: 0.85rem;
+        
+        /* Opcional: Dá uma corzinha de fundo leve para parecerem "tags" ou botões */
+        background-color: rgba(255, 255, 255, 0.05); 
+        border-radius: 20px;
+    }
+}
+
+@media (max-width: 1080px) {
+    
+    /* ... (Mantenha o código do .nav, .ul-nav, etc que passei antes aqui) ... */
+
+    /* --- CORREÇÃO DO MAIN / GIF --- */
+    
+    .main-content {
+        /* O menu no mobile fica mais alto (uns 150px a 200px). 
+           Precisamos empurrar o site para baixo para o GIF aparecer. */
+        padding-top: 20px; 
+    }
+
+    .hero-container {
+        /* Tira o padding exagerado que tinha antes, já compensamos no main-content */
+        padding: 10px 0; 
+        align-items: flex-start; /* Garante que comece do topo */
+    }
+
+    .hero-gif {
+        /* No celular, 100% pode ficar colado nas bordas. 90% fica mais elegante */
+        width: 100%; 
+        max-width: 400px; /* Trava para não ficar gigante em tablets */
+        min-width: 360px; /* Garante que não fique muito pequeno em celulares */
+        height: auto;
+        
+        /* Centraliza a imagem se ela tiver largura menor que 100% */
+        display: block;
+        margin: 0 auto; 
+    }
+}
