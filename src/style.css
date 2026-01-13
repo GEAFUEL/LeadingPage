@@ -1,7 +1,32 @@
+/* ---------- Importando fontes ---------- */
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,700,0..100;1,9..144,700,0..100&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,600;1,17..18,600&display=swap');
 
+/* ---------- separação ---------- */
+
+
+
+/* ---------- Estilos Globais ---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: auto !important; /* Importante para o Lenis ler o tamanho real */
+    min-height: 100%;
+    /* Garante que não tenha barra de rolagem dupla */
+
+    font-family: 'Google Sans', sans-serif;
+    padding-bottom: 0 !important; 
+    margin-bottom: 0 !important;
+}
+/* ---------- separação ---------- */
+
+
+
+/* ---------- Estilos para o Lenis ---------- */
 html.lenis, html.lenis body {
   height: auto;
 }
@@ -22,24 +47,7 @@ html.lenis, html.lenis body {
   pointer-events: none; /* Melhora performance se tiver iframes/videos */
 }
 
-
-
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html, body {
-    height: auto !important; /* Importante para o Lenis ler o tamanho real */
-    min-height: 100%;
-    /* Garante que não tenha barra de rolagem dupla */
-
-    font-family: 'Google Sans', sans-serif;
-    padding-bottom: 0 !important; 
-    margin-bottom: 0 !important;
-}
+/* ---------- separação ---------- */
 
 
 
@@ -49,15 +57,7 @@ html, body {
 
 
 
-
-
-
-
-
-
-
-
-
+/* ---------- Estilos da Navegação ---------- */
 .nav {
     z-index: 9999;
 
@@ -96,11 +96,20 @@ html, body {
     font-family: Google Sans;
     display: flex;
     list-style-type: none;
-
+    
     margin: 0;
     padding: 20px;
     gap: 30px;
     /* transform: translateX(-200px); */
+}
+
+.ul-nav a {
+    text-decoration: none; /* Tira a linha de baixo */
+    color: inherit;
+    display: flex; /* Para alinhar texto e flecha */
+    align-items: center;
+    gap: 8px; /* Espaço entre texto e flecha */
+    padding: 10px 15px; /* Padding movido para o link para melhor clique */
 }
 
 /* 1. Prepara o terreno */
@@ -111,17 +120,82 @@ html, body {
     padding: 10px 5px; /* Ajuste o padding conforme necessário */
 }
 
+.arrow {
+    width: 0; 
+    height: 0; 
+    
+    /* Desenha o triângulo apontando para baixo */
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid black; /* Cor da flecha */
+    
+    /* Prepara a animação */
+    transition: transform 0.3s ease;
+}
+
+/* Quando passa o mouse no LI, a flecha gira 180 graus (aponta p/ cima) */
+.has-dropdown:hover .arrow {
+    transform: rotate(180deg);
+    border-top-color: #007bff; /* Opcional: muda a cor ao girar */
+}
+
+/* --- 3. O Menu Dropdown (A Caixa Escondida) --- */
+.dropdown-menu {
+    position: absolute;
+    top: 100%; /* Cola logo abaixo do item pai */
+    left: 0;
+    
+    background-color: white;
+    min-width: 200px; /* Largura mínima do menu */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* Sombra elegante */
+    border-radius: 8px;
+    padding: 10px 0;
+    
+    /* Esconde o menu inicialmente */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px); /* Começa um pouco mais baixo */
+    transform: translateX(-40px);
+    transition: all 0.3s ease;
+    z-index: 999; /* Garante que fique por cima de tudo */
+
+}
+
+/* Estilo dos itens DENTRO do dropdown */
+.dropdown-menu li {
+    width: 100%;
+    list-style-type: none;
+}
+
+.dropdown-menu a {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    color: #333;
+    display: block;    
+}
+
+
+/* --- 4. Ação de Mostrar o Menu --- */
+.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Sobe suavemente para a posição certa */
+    transform: translateX(-20px);
+}
+
+
 /* 2. Cria a linha (invisível inicialmente) */
 .ul-nav li::after {
     content: '';
     position: absolute;
     width: 0%;      /* Começa sem largura */
-    height: 2px;    /* Espessura da linha */
+    height: 3px;    /* Espessura da linha */
     bottom: 5px;    /* Posição vertical */
     left: 50%;      /* Começa do meio */
     background-color: #007bff; /* COR DA LINHA (Azul Ciência) - Mude se quiser */
     transition: all 0.3s ease-in-out; /* A mágica da animação */
     transform: translateX(-50%); /* Garante que cresça para os dois lados */
+    
 }
 
 /* 3. A animação ao passar o mouse */
@@ -132,6 +206,49 @@ html, body {
 .ul-nav li:hover {
     color: #007bff; /* O texto também muda de cor levemente */
 }
+
+
+/* --- A FLECHINHA (Apenas para itens com sub-menu) --- */
+/* Vamos criar uma classe .has-sub para não colocar flecha em todos */
+
+.ul-nav li.has-sub::after {
+    content: '';
+    position: absolute;
+    right: 0;       /* Cola na direita do padding */
+    top: 45%;       /* Centraliza verticalmente */
+    
+    /* Desenhando a flecha com bordas (estilo Chevron) */
+    width: 5px;
+    height: 5px;
+    border: solid black; /* Cor da flecha */
+    border-width: 0 2px 2px 0; /* Cria o "L" que vira flecha */
+    transform: rotate(45deg) translateY(-50%); /* Gira para apontar pra baixo */
+    
+    transition: all 0.3s ease; /* Animação da rotação */
+}
+
+/* Quando passar o mouse, a flecha fica azul e gira para cima */
+.ul-nav li.has-sub:hover::after {
+    border-color: #007bff;
+    transform: rotate(225deg) translateY(-50%); /* Gira 180 graus */
+    top: 50%; /* Pequeno ajuste visual na rotação */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .logo-wrapper {
     display: flex;
@@ -322,7 +439,9 @@ body {
     margin-bottom: 30px;
     text-align: center;
     color: #000;
+    padding: 20px 0; 
 }
+
 
 /* --- ESTILO DAS IMAGENS (Para todas) --- */
 .post-img {
@@ -585,6 +704,16 @@ body {
 
 
 /* --- CONFIGURAÇÃO DA SEÇÃO --- */
+
+.study-section-title {
+    font-family: 'Fraunces', serif; /* Sua fonte de título */
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #000;
+}
+
+
 .study-groups-section {
     padding: 60px 20px;
     background-color: white; /* Ou cinza bem clarinho #f9f9f9 */
@@ -810,6 +939,21 @@ body {
        mas isso garante alinhamento */
     align-items: stretch; 
 }
+
+.card-link {
+    /* 1. Remove a linha de baixo padrão de links */
+    text-decoration: none; 
+    
+    /* 2. Garante que o texto herde as cores definidas dentro do card */
+    color: inherit; 
+    
+    /* 3. Faz o link ocupar o espaço todo da célula do Grid */
+    display: block; 
+    height: 100%; 
+}
+
+
+
 
 
 
@@ -1126,4 +1270,3 @@ body {
         text-align: center;
     }
 }
-
