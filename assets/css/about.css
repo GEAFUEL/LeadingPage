@@ -1,0 +1,86 @@
+/* About Page Specific Styles */
+
+.about-hero {
+    height: 60vh;
+    /* Fundo escuro com gradiente sutil inspirado no ícone */
+    background: linear-gradient(135deg, #0a0e29 0%, #1e1b4b 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    margin-bottom: 60px;
+    position: relative;
+    overflow: hidden;
+    /* Para o brilho não vazar */
+    width: 100vw; 
+    
+    /* 2. Posiciona o elemento para ignorar o pai centralizado */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.about-hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+}
+
+.about-hero p {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+.about-content {
+    padding: 80px 20px;
+    background-color: white;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.mission-section,
+.vision-section {
+    margin-bottom: 60px;
+    text-align: justify;
+}
+
+.about-content h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 2.5rem;
+    color: #0b0d17;
+    margin-bottom: 25px;
+    border-bottom: 3px solid #007bff;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.about-content p {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-hero {
+        padding-top: 120px;
+    }
+
+    .about-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-content h2 {
+        font-size: 2rem;
+    }
+}
