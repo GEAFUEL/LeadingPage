@@ -1,0 +1,273 @@
+/* ---------- Estilos Globais ---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: auto !important;
+    /* Importante para o Lenis ler o tamanho real */
+    min-height: 100%;
+    /* Garante que não tenha barra de rolagem dupla */
+
+    font-family: 'Google Sans', sans-serif;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- CONFIGURAÇÕES GERAIS DA PÁGINA DE ARTIGO --- */
+.article-main {
+    background-color: #fff;
+    /* Fundo branco papel */
+    color: #111;
+    padding-bottom: 100px;
+    width: 100vw;
+    /* Garante full width se necessário */
+    overflow-x: hidden;
+}
+
+/* --- 1. CABEÇALHO (HEADER) --- */
+.article-header {
+    max-width: 1000px;
+    /* Não deixa esticar demais */
+    margin: 20px auto 60px auto;
+    /* Espaço do topo (considerando menu fixo) */
+    padding: 0 20px;
+    text-align: center;
+}
+
+.article-category {
+    font-family: 'Google Sans', sans-serif;
+    color: #007bff;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.article-title {
+    font-family: 'Fraunces', serif;
+    /* Sua fonte de títulos elegante */
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+.article-subtitle {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+}
+
+/* Hero Image */
+.hero-figure {
+    width: 100vw;
+    /* Estoura a largura do container */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-bottom: 60px;
+}
+
+.hero-image {
+    width: 100%;
+    height: 60vh;
+    /* Ocupa 60% da altura da tela */
+    object-fit: cover;
+}
+
+.hero-figure figcaption {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 10px;
+    font-family: 'Google Sans', sans-serif;
+}
+
+/* --- 2. LAYOUT GRID (O CORAÇÃO DO DESIGN) --- */
+.article-layout {
+    max-width: 1100px;
+    /* Largura total da área de leitura */
+    margin: 0 auto;
+    padding: 0 20px;
+
+    display: grid;
+    /* Coluna Esquerda (250px) | Espaço (60px) | Conteúdo (Resto) */
+    grid-template-columns: 250px 1fr;
+    gap: 60px;
+    position: relative;
+}
+
+/* --- BARRA LATERAL (AUTOR) --- */
+.article-sidebar {
+    /* MÁGICA: Faz a barra ficar fixa enquanto rola o texto */
+    position: sticky;
+    top: 120px;
+    /* Distância do topo (ajuste conforme seu menu) */
+    height: fit-content;
+    /* Importante para o sticky funcionar */
+
+    font-family: 'Google Sans', sans-serif;
+    border-top: 2px solid #111;
+    /* Detalhe estilo jornal */
+    padding-top: 20px;
+}
+
+.author-card {
+    margin-bottom: 30px;
+}
+
+.author-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.written-by {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #888;
+    letter-spacing: 1px;
+}
+
+.author-name {
+    margin: 5px 0;
+    font-size: 1.1rem;
+    color: #000;
+}
+
+.author-bio {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+.article-meta-data {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    margin-bottom: 30px;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.meta-item {
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* --- CONTEÚDO DO TEXTO (CENTRO) --- */
+.article-content {
+    /* Tipografia de Livro/Jornal */
+    font-family: 'Merriweather', 'Georgia', serif;
+    /* Use uma fonte serifada boa */
+    font-size: 1.15rem;
+    /* Tamanho confortável */
+    line-height: 1.8;
+    /* Entrelinha alta para não cansar */
+    color: #222;
+    max-width: 680px;
+    /* Largura ideal de leitura (aprox 75 caracteres por linha) */
+}
+
+/* Letra Capitular (Primeira letra grande) */
+.article-content>p:first-of-type::first-letter {
+    font-size: 3.5rem;
+    float: left;
+    line-height: 0.8;
+    margin-right: 10px;
+    margin-top: 5px;
+    color: #111;
+    font-family: 'Fraunces', serif;
+}
+
+.article-content h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.8rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.article-content p {
+    margin-bottom: 25px;
+}
+
+/* Pull Quote (Citação destacada no meio do texto) */
+.pull-quote {
+    font-family: 'Fraunces', serif;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    color: #007bff;
+    /* Azul do seu tema */
+    border-left: 4px solid #111;
+    padding-left: 20px;
+    margin: 40px 0;
+    font-style: italic;
+}
+
+/* Imagens dentro do texto */
+.inline-image {
+    margin: 40px 0;
+}
+
+.inline-image img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 900px) {
+    .article-layout {
+        grid-template-columns: 1fr;
+        /* Vira uma coluna só */
+        gap: 40px;
+    }
+
+    .article-sidebar {
+        position: relative;
+        /* Remove o sticky no mobile */
+        top: 0;
+        border-top: none;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 30px;
+        display: flex;
+        /* Opcional: layout horizontal pro autor no mobile */
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .article-title {
+        font-size: 2.5rem;
+    }
+}

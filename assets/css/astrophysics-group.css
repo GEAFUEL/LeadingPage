@@ -1,0 +1,248 @@
+/* --- Astrophysics Group Page Styles --- */
+
+/* Inherits global styles from style.css */
+
+.group-hero {
+    min-height: 80vh;
+}
+
+.group-hero-content h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.group-hero-content p {
+    font-size: 1.2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: #666;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.content-section {
+    max-width: 1200px;
+    margin: 0 auto 80px;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-family: 'Fraunces', serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+    border-left: 5px solid #5d4177; /* Matching the group color */
+    padding-left: 20px;
+}
+
+/* --- Research Topics Grid --- */
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.topic-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border-top: 4px solid #5d4177;
+}
+
+.topic-card:hover {
+    transform: translateY(-5px);
+}
+
+.topic-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.topic-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* --- Members Section --- */
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.member-card {
+    text-align: center;
+}
+
+.member-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #5d4177;
+}
+
+.member-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.member-role {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .group-hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- GRID DO GRUPO (A mesma lógica "Blindada") --- */
+.team-section {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Google Sans', sans-serif; /* Ou sua fonte padrão */
+}
+
+.team-grid {
+    display: grid;
+    /* Divide em 4 colunas exatas */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px; /* Um pouco mais de espaço para cards de perfil */
+    align-items: stretch;
+}
+
+/* O "Wrapper" é essencial para o Grid não quebrar com nomes longos */
+.team-wrapper {
+    min-width: 0;
+    height: 100%;
+    display: flex;
+}
+
+/* --- ESTILO DO CARD --- */
+.profile-card {
+    background: white;
+    border-radius: 20px; /* Arredondamento maior conforme o print */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Sombra suave */
+    padding: 30px 20px;
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza tudo */
+    text-align: center;
+    
+    transition: transform 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Imagem */
+.profile-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%; /* Faz ficar redonda */
+    object-fit: cover; /* Garante que a foto não estique */
+    border: 4px solid #007bff; /* Borda azul brilhante */
+    margin-bottom: 20px;
+}
+
+/* Conteúdo de Texto */
+.profile-body {
+    flex-grow: 1; /* Empurra o botão para baixo se sobrar espaço */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.member-name {
+    font-family: 'Fraunces', serif; /* Mantendo o padrão dos títulos */
+    font-size: 1.3rem;
+    color: #111;
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+    
+    /* Proteção contra quebra de layout */
+    word-wrap: break-word; 
+}
+
+.member-role {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.member-bio {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Botão Lattes */
+.lattes-btn {
+    display: inline-block;
+    background-color: #eef4ff; /* Fundo azul bem clarinho */
+    color: #0066cc; /* Texto azul forte */
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s ease;
+}
+
+.lattes-btn:hover {
+    background-color: #dce9ff;
+}
+
+/* --- RESPONSIVIDADE (Mesma lógica do anterior) --- */
+@media (max-width: 1100px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets */
+    }
+}
+
+@media (max-width: 650px) {
+    .team-grid {
+        grid-template-columns: 1fr; /* 1 coluna em celular */
+    }
+}
