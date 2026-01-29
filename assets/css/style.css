@@ -328,7 +328,12 @@ html.lenis, html.lenis body {
         min-height: 70px;
     }
 
-    .logo-wrapper h2 { display: none; }
+    .logo-wrapper h2 { margin: 0;
+    font-size: 0.7rem;
+    font-family: Fraunces;
+ 
+    border-left: 0.7px solid rgb(0, 0, 0);
+    padding-left: 10px; }
     .logo-img { height: 50px; }
 
     /* --- 2. Botão Hambúrguer --- */
@@ -1665,5 +1670,6 @@ body {
         width: 100%;
     }
 }
+
 
 
