@@ -334,7 +334,7 @@ html.lenis, html.lenis body {
  
     border-left: 0.7px solid rgb(0, 0, 0);
     padding-left: 10px; }
-    .logo-img { height: 50px; }
+    .logo-img { height: 50px; padding-right: 0px; }
 
     /* --- 2. Botão Hambúrguer --- */
     .hamburger {
@@ -1670,6 +1670,7 @@ body {
         width: 100%;
     }
 }
+
 
 
 
