@@ -1,0 +1,360 @@
+/* Contact Page Specific Styles */
+
+.contact-hero {
+    background-color: #0b0d17;
+    color: white;
+    padding: 120px 20px 80px;
+    text-align: center;
+    padding-top: 150px;
+    /* Extra padding for fixed header */
+}
+
+.contact-hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+}
+
+.contact-hero p {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+.contact-content {
+    padding: 80px 20px;
+    background-color: white;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 60px;
+}
+
+/* --- Contact Form --- */
+.contact-form-wrapper h2,
+.contact-info-wrapper h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    color: #0b0d17;
+    margin-bottom: 30px;
+}
+
+.contact-form {
+    background-color: #f9f9f9;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.btn-submit {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* --- Contact Info --- */
+.info-desc {
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.icon-box {
+    background-color: #e7f1ff;
+    color: #007bff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.info-text h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.info-text p {
+    color: #666;
+    line-height: 1.5;
+}
+
+.social-connect {
+    margin-top: 40px;
+}
+
+.social-connect h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    border: 1px solid #007bff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* --- ESTILOS GERAIS DA PÁGINA --- */
+        
+        /* HEADER (Hero) */
+        .page-header {
+            text-align: center; padding: 30px 20px 10px;
+            background: #fff;
+        }
+        .page-title { 
+            font-family: 'Fraunces', serif; font-size: 3.5rem; color: #0a192f; 
+            margin-bottom: 20px; 
+        }
+        .page-subtitle { 
+            font-size: 1.15rem; color: #555; max-width: 700px; margin: 0 auto; 
+            line-height: 1.6; font-weight: 300;
+        }
+
+        /* --- SEÇÃO: PREMISSAS (CLEAN STYLE) --- */
+        .premises-section {
+            background-color: #f8f9fa; /* Cinza muito suave */
+            padding: 80px 20px;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .premises-container { max-width: 1100px; margin: 0 auto; }
+        
+        .premises-header { text-align: center; margin-bottom: 60px; }
+        .premises-title { font-family: 'Fraunces', serif; font-size: 2.2rem; color: #111; margin-bottom: 10px; }
+        .premises-desc { color: #666; font-size: 1rem; }
+
+        .premises-grid {
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 30px;
+        }
+
+        .premise-box {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03); /* Sombra ultra leve */
+            border: 1px solid rgba(0,0,0,0.03);
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Barrinha colorida no topo de cada card */
+        .premise-box::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+            background: #003366; transition: height 0.3s;
+        }
+
+        .premise-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+        
+        /* Ícone */
+        .premise-icon { 
+            font-size: 2.5rem; margin-bottom: 25px; display: inline-block;
+            background: #f0f4ff; width: 80px; height: 80px; line-height: 80px;
+            border-radius: 50%; color: #003366;
+        }
+
+        .premise-box h4 { 
+            margin-bottom: 15px; color: #0a192f; font-size: 1.3rem; 
+            font-family: 'Fraunces', serif;
+        }
+        .premise-box p { font-size: 0.95rem; color: #666; line-height: 1.6; }
+
+
+        /* --- SEÇÃO: PROCESSO (Clean) --- */
+        .process-section {
+            padding: 100px 20px;
+            max-width: 1100px; margin: 0 auto;
+        }
+        
+        .section-separator-title {
+            text-align: center; margin-bottom: 60px; 
+            font-family: 'Fraunces', serif; font-size: 2.2rem; color: #0a192f;
+        }
+
+        .process-grid {
+            display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: flex-start;
+        }
+
+        /* Lista de Passos */
+        .steps-wrapper { display: flex; flex-direction: column; gap: 30px; }
+
+        .step-item {
+            display: flex; gap: 20px; align-items: flex-start;
+        }
+        
+        .step-number {
+            font-family: 'Fraunces', serif; font-size: 3rem; color: #e1e4e8;
+            font-weight: 700; line-height: 0.8; min-width: 60px;
+        }
+        
+        .step-content { padding-top: 5px; }
+        .step-content h3 { margin: 0 0 10px 0; color: #003366; font-size: 1.2rem; }
+        .step-content p { margin: 0; color: #555; line-height: 1.5; font-size: 0.95rem; }
+
+        /* Card de Ação (Direita) */
+        .action-card {
+            background-color: #0a192f; color: white;
+            padding: 50px 40px; border-radius: 20px; text-align: center;
+            box-shadow: 0 20px 60px rgba(10, 25, 47, 0.2);
+            position: sticky; top: 120px; /* Fica parado ao rolar */
+        }
+
+        .action-card h2 { font-family: 'Fraunces', serif; font-size: 2rem; margin-bottom: 20px; }
+        .action-card p { font-size: 1rem; opacity: 0.8; margin-bottom: 40px; line-height: 1.6; }
+
+        .btn-start {
+            background: white; color: #0a192f; padding: 18px 40px; border-radius: 50px;
+            font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+            text-decoration: none; display: inline-block; transition: all 0.3s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .btn-start:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0,0,0,0.3); }
+
+
+        /* --- CORREÇÃO MENU (CSS Específico) --- */
+        /* Note o sinal ">" entre a classe e o li */
+        .ul-nav > li:last-child::after {
+            content: none !important;
+            display: none !important;
+            width: 0 !important; 
+        }
+        
+        .nav-btn-cta {
+            background-color: #003366 !important; color: #fff !important;
+            padding: 12px 35px !important; font-size: 1rem !important; font-weight: 800 !important;
+            border-radius: 50px; box-shadow: 0 5px 15px rgba(0, 51, 102, 0.4);
+            transition: all 0.3s ease-in-out; border: none !important; text-decoration: none !important;
+        }
+        .nav-btn-cta:hover {
+            background-color: #004080 !important; transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 51, 102, 0.6);
+        }
+
+        /* Responsividade */
+        @media (max-width: 900px) {
+            .premises-grid { grid-template-columns: 1fr; }
+            .process-grid { grid-template-columns: 1fr; }
+            .action-card { position: static; }
+        }
+
+
+        .join-illustration {
+            max-width: 720px;
+            height: auto;
+            margin-top: 40px;
+        }
