@@ -1,0 +1,310 @@
+/* ---------- Importando fontes ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,700,0..100;1,9..144,700,0..100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,600;1,17..18,600&display=swap');
+
+/* ---------- Estilos Globais ---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: auto !important;
+    min-height: 100%;
+    font-family: 'Google Sans', sans-serif;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    background-color: #f8f9fa;
+    /* Fundo levemente cinza para destacar o conteúdo */
+}
+
+/* ---------- Estilos para o Lenis ---------- */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
+
+.talk-category {
+    display: inline-block;
+    background-color: #007bff18;
+    /* Fundo azul bem claro */
+    color: #007bff;
+    /* Azul índigo */
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+}
+
+.talk-header h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 3.5rem;
+    color: #111;
+    /* Azul muito escuro */
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.talk-subtitle {
+    font-size: 1.2rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* --- Corpo Principal (Grid) --- */
+.talk-body {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    /* Sidebar fixa e conteúdo fluido */
+    gap: 60px;
+    align-items: start;
+}
+
+/* --- Sidebar do Palestrante --- */
+.speaker-sidebar {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 170px;
+    /* Sticky abaixo do menu */
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.speaker-img-wrapper {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #007bff;
+    /* Borda azul clara */
+}
+
+.speaker-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.speaker-details h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    color: #111;
+    margin-bottom: 5px;
+}
+
+.affiliation {
+    color: #64748b;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.mini-divider {
+    border: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #e0e7ff, transparent);
+    margin: 20px 0;
+}
+
+.bio {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #475569;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.speaker-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.speaker-links a {
+    color: #007bff;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: #eef0ff;
+    transition: all 0.2s ease;
+}
+
+.speaker-links a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* --- Conteúdo da Palestra --- */
+.talk-content {
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+/* Info Box (Data, Hora, Local) */
+.talk-info-box {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f8fafc;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 40px;
+    border: 1px solid #e2e8f0;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-wrapper {
+    width: 45px;
+    height: 45px;
+    background-color: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #111;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.info-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-text .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #111;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.info-text .value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111;
+}
+
+/* Abstract e Texto */
+.abstract-section h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    color: #111;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.abstract-section h2::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 30px;
+    background: linear-gradient(to bottom,#003366, #111);
+    /* Gradiente roxo/azul */
+    border-radius: 3px;
+}
+
+.abstract-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #111;
+    margin-bottom: 25px;
+    text-align: justify;
+}
+
+/* Referências */
+.references-section {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 2px dashed #e2e8f0;
+}
+
+.references-section h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    color: #111;
+    margin-bottom: 20px;
+}
+
+.ref-list {
+    list-style: none;
+}
+
+.ref-list li {
+    font-size: 0.95rem;
+    color: #475569;
+    background-color: #f8fafc;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #cbd5e1;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease;
+}
+
+.ref-list li:hover {
+    border-left-color: #007bff;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 900px) {
+    .talk-body {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .speaker-sidebar {
+        position: relative;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .talk-info-box {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .talk-header h1 {
+        font-size: 2.5rem;
+    }
+}
