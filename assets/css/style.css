@@ -161,11 +161,7 @@ html.lenis, html.lenis body {
             display: inline-block;
 }
 
-.nav-btn-cta:hover {
-            background-color: white !important;
-            color: #0b0d17 !important;
-            border-color: white !important;
-}
+
 
 /* ---------- Estilos da Lista de Navegação ---------- */
 .ul-nav {
@@ -291,11 +287,17 @@ html.lenis, html.lenis body {
 }
 
 /* --- 4. Ação de Mostrar o Menu --- */
-.has-dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0); /* Sobe suavemente para a posição certa */
-    transform: translateX(0px);
+/* Só ativa hover em dispositivos com mouse real (não touch) */
+@media (hover: hover) and (pointer: fine) {
+    .has-dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .has-dropdown:hover .arrow {
+        transform: rotate(225deg);
+    }
 }
 
 /* --- LOGO --- */
@@ -450,29 +452,35 @@ html.lenis, html.lenis body {
         transition: color 0.3s;
     }
     
-    /* Flecha (Seta) */
+    /* Flecha (Seta) — mantém o chevron, apenas ajusta a cor */
     .arrow {
-        border-top: 5px solid rgba(255, 255, 255, 0.85);
+        border-right: 2px solid rgba(255, 255, 255, 0.85);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.85);
+        border-top: none;
+        border-left: none;
+        width: 7px;
+        height: 7px;
+        transform: rotate(45deg);
         transition: transform 0.4s ease;
+        top: -2px;
+        margin-left: 6px;
     }
-    
-    .ul-nav li::after { display: none; } /* Remove linha animada desktop */
 
-
-
-
-
-  /* --- CORREÇÃO: Bloqueia efeitos de Hover do Desktop --- */
-    /* Isso garante que passar o mouse ou tocar sem querer não gire a flecha */
+    /* Bloqueia o hover do desktop de girar a seta no touch */
     .has-dropdown:hover > a .arrow {
-        transform: rotate(0deg); 
+        transform: rotate(45deg);
     }
-    
-    /* A flecha só gira se tiver a classe do Javascript */
+
+    /* A flecha só gira quando JS adicionar active-dropdown */
     .has-dropdown.active-dropdown > a .arrow {
-        transform: rotate(180deg) !important;
-        border-top-color: white;
+        transform: rotate(225deg) !important;
     }
+
+
+
+
+
+    .ul-nav li::after { display: none; } /* Remove linha animada desktop */
 
     /* --- 4. O DROPDOWN SEM REBARBA --- */
     .dropdown-menu {
@@ -487,21 +495,22 @@ html.lenis, html.lenis body {
         visibility: hidden;
         
         /* Removemos o visual de "caixa/card" */
-        background-color: transparent; /* Fundo transparente para integrar */
+
         border-radius: 0;
         box-shadow: none;
+        border: none; /* Remove a borda da caixa */
         
         /* Zera margens para colar no item de cima */
         margin: 0;
         padding: 0;
         
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        
     }
 
     /* Estado Aberto */
     .dropdown-menu.open {
         max-height: 500px;
-        opacity: 1;
+        opacity: 0;
         visibility: visible;
         margin-bottom: 20px; /* Espaço apenas no final da lista inteira */
     }
@@ -514,38 +523,6 @@ html.lenis, html.lenis body {
         border-bottom: none; 
     }
 
-    .dropdown-menu a {
-        /* Estilo do Texto */
-        font-family: 'Google Sans', sans-serif;
-        font-size: 1rem;
-        font-weight: 400;
-        color: rgba(255, 255, 255, 0.7);
-        
-        /* Espaçamento e Alinhamento */
-        padding: 12px 20px;
-        display: block;
-        text-align: center;   /* Centralizado como você pediu */
-        text-decoration: none;
-        
-        /* Prepara a transição */
-        background-color: transparent;
-        transition: all 0.2s ease;
-        
-        /* Correção técnica: Borda transparente invisível já ocupando espaço */
-        /* Isso impede que o texto pule quando a borda colorida aparecer no hover */
-        border-left: 4px solid transparent; 
-        border-right: 4px solid transparent; /* Equilibra para manter no centro exato */
-    }
-
-    /* --- CORREÇÃO DO "PULO" PARA O LADO --- */
-    /* No hover/active, NÃO mudamos o font-weight. Mudamos cor e fundo. */
-    
-    .dropdown-menu a:active,
-    .dropdown-menu a:hover {
-        background-color: rgba(255, 255, 255, 0.06);
-        color: white;
-        border-left-color: rgba(255, 255, 255, 0.4);
-    }
 }
 /* -------------------- FIM DO HEADER -------------------- */
 
@@ -667,7 +644,7 @@ body {
 
     .hero-gif {
         /* Ajuste de tamanho para Tablet/Mobile */
-        max-width: 100%; /* Aproveita 100% do container (que já tem padding de 15px) */
+        max-width: 90vw; /* Aproveita 100% do container (que já tem padding de 15px) */
         
         /* IMPORTANTE: Removi o min-width: 360px */
         /* Celulares antigos (iPhone SE, Galaxy J) têm 320px de largura. */
