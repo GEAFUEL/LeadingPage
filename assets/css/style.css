@@ -91,20 +91,18 @@ html.lenis, html.lenis body {
 .nav {
     z-index: 9999;
     margin-top: 0;
-    background: rgba(255, 255, 255, 1);
-    backdrop-filter: blur(5px);
-    padding: 1rem;
+    background: transparent;
+    padding: 0 40px;
+    transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease, color 0.4s ease;
 
     /* Borda */
-    border: 1px solid rgba(146, 146, 146, 0.1);
-    border-radius: 20px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid transparent;
 
     /* Posição */
     position: fixed;
-    top: 10px;
-    left: 10px;
-    right: 10px;
+    top: 0;
+    left: 0;
+    right: 0;
 
     /* Largura e altura */
     height: px;
@@ -116,8 +114,7 @@ html.lenis, html.lenis body {
     align-items: center;
 
     /* Espaçamento */
-    padding: auto;
-    color: black;
+    color: rgb(0, 0, 0);
 
 
 
@@ -131,26 +128,43 @@ html.lenis, html.lenis body {
     width: auto;
 }
 
+.nav.scrolled {
+    background: #0b0d17;
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+}
+
+.nav.scrolled .ul-nav a {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.nav.scrolled .logo-wrapper h2 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.nav.scrolled .nav-btn-cta {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
 .nav-btn-cta {
-            background-color: #003366 !important;
-            color: #fff !important;
-            padding: 12px 35px !important;
-            font-size: 0.95rem !important;
+            background-color: transparent !important;
+            color: #000000 !important;
+            padding: 10px 28px !important;
+            font-size: 0.85rem !important;
             font-weight: 700 !important;
-            border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0, 51, 102, 0.3);
+            border-radius: 4px;
+            border: 2px solid rgba(255, 255, 255, 0.65) !important;
             transition: all 0.3s ease;
-            border: none !important;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-decoration: none !important;
             display: inline-block;
 }
 
 .nav-btn-cta:hover {
-            background-color: #004080 !important;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 51, 102, 0.5);
+            background-color: white !important;
+            color: #0b0d17 !important;
+            border-color: white !important;
 }
 
 /* ---------- Estilos da Lista de Navegação ---------- */
@@ -167,19 +181,20 @@ html.lenis, html.lenis body {
 
 .ul-nav a {
     text-decoration: none; /* Tira a linha de baixo */
-    color: inherit;
+    color: rgba(0, 0, 0, 0.85);
     display: flex; /* Para alinhar texto e flecha */
     align-items: center;
     gap: 8px; /* Espaço entre texto e flecha */
     padding: 10px 15px; /* Padding movido para o link para melhor clique */
+    transition: color 0.4s ease;
 }
 
 /* 1. Prepara o terreno */
 .ul-nav li {
     position: relative; /* Necessário para posicionar a linha */
     cursor: pointer;
-    color: black; /* Cor original do texto */
-    padding: 10px 5px; /* Ajuste o padding conforme necessário */
+    color: rgba(255, 255, 255, 0.85);
+    padding: 10px 5px;
 }
 
 /* Note o sinal ">" entre a classe e o li */
@@ -197,7 +212,7 @@ html.lenis, html.lenis body {
     height: 3px;    /* Espessura da linha */
     bottom: 5px;    /* Posição vertical */
     left: 50%;      /* Começa do meio */
-    background-color: #007bff; /* COR DA LINHA (Azul Ciência) - Mude se quiser */
+    background-color: rgba(255, 255, 255, 0.7);
     transition: all 0.3s ease-in-out; /* A mágica da animação */
     transform: translateX(-50%); /* Garante que cresça para os dois lados */
     
@@ -209,26 +224,27 @@ html.lenis, html.lenis body {
 }
 
 .ul-nav li:hover {
-    color: #007bff; /* O texto também muda de cor levemente */
+    color: white;
 }
 
 .arrow {
-    width: 0; 
-    height: 0; 
-    
-    /* Desenha o triângulo apontando para baixo */
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 6px solid black; /* Cor da flecha */
-    
-    /* Prepara a animação */
-    transition: transform 0.3s ease;
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid #1a1a2e;
+    border-bottom: 2px solid #1a1a2e;
+    transform: rotate(45deg);
+    margin-left: 6px;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+    transition: border-color 0.4s ease, transform 0.3s ease;
 }
 
 /* Quando passa o mouse no LI, a flecha gira 180 graus (aponta p/ cima) */
 .has-dropdown:hover .arrow {
-    transform: rotate(180deg);
-    border-top-color: #007bff; /* Opcional: muda a cor ao girar */
+    transform: rotate(224deg);
+    border-top-color: white;
 }
 
 /* --- 3. O Menu Dropdown (A Caixa Escondida) --- */
@@ -237,10 +253,11 @@ html.lenis, html.lenis body {
     top: 100%; /* Cola logo abaixo do item pai */
     left: 0;
     
-    background-color: white;
-    min-width: 200px; /* Largura mínima do menu */
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* Sombra elegante */
-    border-radius: 8px;
+    background-color: #13162a;
+    min-width: 220px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.07);
     padding: 10px 0;
     
     /* Esconde o menu inicialmente */
@@ -260,10 +277,17 @@ html.lenis, html.lenis body {
 }
 
 .dropdown-menu a {
-    padding: 10px 20px;
+    padding: 12px 20px;
     font-size: 0.9rem;
-    color: #333;
-    display: block;    
+    color: rgba(255, 255, 255, 0.75);
+    display: block;
+    transition: all 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.06);
+    padding-left: 25px;
 }
 
 /* --- 4. Ação de Mostrar o Menu --- */
@@ -294,8 +318,9 @@ html.lenis, html.lenis body {
     font-size: 1.5rem;
     font-family: Fraunces;
  
-    border-left: 2px solid rgb(0, 0, 0);
+    border-left: 2px solid rgba(255, 255, 255, 0.25);
     padding-left: 25px;
+    transition: color 0.4s ease;
 }
 
 /* --- ESTILO DO BOTÃO HAMBÚRGUER (Padrão Desktop: Invisível) --- */
@@ -309,10 +334,8 @@ html.lenis, html.lenis body {
     width: 25px;
     height: 3px;
     margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
+    background-color: #1a1a2e;
     transition: all 0.3s ease-in-out;
-    background-color: #003366; /* Cor azul escuro das barras */
-    border-radius: 3px;
 }
 
 
@@ -332,7 +355,7 @@ html.lenis, html.lenis body {
     font-size: 0.7rem;
     font-family: Fraunces;
  
-    border-left: 0.7px solid rgb(0, 0, 0);
+    border-left: 0.7px solid rgba(255, 255, 255, 0.25);
     padding-left: 10px; }
     .logo-img { height: 50px; padding-right: 0px; }
 
@@ -347,7 +370,7 @@ html.lenis, html.lenis body {
     .bar {
         width: 30px;
         height: 3px; /* Um pouco mais grosso para visibilidade */
-        background-color: #003366;
+        background-color: rgba(255, 255, 255, 0.9);
         margin: 6px 0;
         transition: 0.4s;
         border-radius: 2px;
@@ -370,7 +393,7 @@ html.lenis, html.lenis body {
         padding: 80px 20px 40px 20px; /* Topo maior para não cobrir header */
         box-sizing: border-box; /* Garante que padding não estoure largura */
         
-        background: rgba(255, 255, 255, 0.98);
+        background: rgba(11, 13, 23, 0.98);
         backdrop-filter: blur(15px);
         
         /* Centralização Vertical e Horizontal */
@@ -399,7 +422,7 @@ html.lenis, html.lenis body {
         text-align: center;
         list-style: none;
         margin: 0;
-        border-bottom: 1px solid rgba(0,0,0,0.05); /* Divisória sutil entre seções */
+        border-bottom: 1px solid rgba(255,255,255,0.07);
     }
     
     /* Remove borda do último item e do CTA */
@@ -412,7 +435,7 @@ html.lenis, html.lenis body {
         font-family: 'Google Sans', sans-serif;
         font-size: 1.2rem;
         font-weight: 600;
-        color: #003366;
+        color: rgba(255, 255, 255, 0.9);
         padding: 20px 0; /* Área de toque generosa */
         display: flex;
         align-items: center;
@@ -423,7 +446,7 @@ html.lenis, html.lenis body {
     
     /* Flecha (Seta) */
     .arrow {
-        border-top: 5px solid #003366; /* Cor azul */
+        border-top: 5px solid rgba(255, 255, 255, 0.85);
         transition: transform 0.4s ease;
     }
     
@@ -442,7 +465,7 @@ html.lenis, html.lenis body {
     /* A flecha só gira se tiver a classe do Javascript */
     .has-dropdown.active-dropdown > a .arrow {
         transform: rotate(180deg) !important;
-        border-top-color: #007bff;
+        border-top-color: white;
     }
 
     /* --- 4. O DROPDOWN SEM REBARBA --- */
@@ -487,10 +510,10 @@ html.lenis, html.lenis body {
 
     .dropdown-menu a {
         /* Estilo do Texto */
-        font-family: 'Google Sans', sans-serif; /* Garante a mesma fonte */
-        font-size: 1rem;      /* Tamanho legível */
-        font-weight: 400;     /* Peso normal */
-        color: #666;          /* Cinza médio para diferenciar do título principal */
+        font-family: 'Google Sans', sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.7);
         
         /* Espaçamento e Alinhamento */
         padding: 12px 20px;
@@ -511,13 +534,11 @@ html.lenis, html.lenis body {
     /* --- CORREÇÃO DO "PULO" PARA O LADO --- */
     /* No hover/active, NÃO mudamos o font-weight. Mudamos cor e fundo. */
     
-    .dropdown-menu a:active, 
+    .dropdown-menu a:active,
     .dropdown-menu a:hover {
-        background-color: rgba(0, 51, 102, 0.04); /* Fundo azul muito clarinho */
-        color: #003366; /* Texto fica azul escuro */
-        
-        /* Truque visual: A borda fica azul, mas como já existia uma transparente, nada se mexe */
-        border-left-color: #003366; 
+        background-color: rgba(255, 255, 255, 0.06);
+        color: white;
+        border-left-color: rgba(255, 255, 255, 0.4);
     }
 }
 /* -------------------- FIM DO HEADER -------------------- */
@@ -1648,6 +1669,425 @@ body {
     
     .site-footer {
         width: 100%;
+    }
+}
+
+/* =============================================
+   WATCH WIDGET — inspirado no Daily Wire /watch
+   ============================================= */
+
+.watch-widget-section {
+    background-color: #0b0d17;
+    padding: 60px 40px;
+    width: 100%;
+}
+
+.watch-widget-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+.watch-widget-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.watch-widget-title {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    color: #ffffff;
+    margin: 0;
+}
+
+.watch-widget-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.watch-tab-btn {
+    padding: 7px 18px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: transparent;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.82rem;
+    font-family: 'Google Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.watch-tab-btn:hover {
+    border-color: #007bff;
+    color: #fff;
+}
+
+.watch-tab-btn.active {
+    background: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+
+.watch-view-all {
+    color: #007bff;
+    font-size: 0.9rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s;
+}
+.watch-view-all:hover { color: #fff; }
+
+/* Main layout */
+.watch-widget-layout {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 20px;
+    align-items: start;
+}
+
+/* ---- Featured Player ---- */
+.watch-featured {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: #13162a;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.07);
+}
+
+.watch-player-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    overflow: hidden;
+}
+
+.watch-player-wrap iframe,
+.watch-player-wrap video {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* Placeholder quando não há vídeo ativo */
+.watch-player-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0d0f1f 0%, #1a1e3a 50%, #0d0f1f 100%);
+    gap: 16px;
+    cursor: pointer;
+    position: relative;
+}
+
+.watch-player-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(0,123,255,0.12) 0%, transparent 70%);
+}
+
+.watch-play-icon {
+    width: 72px;
+    height: 72px;
+    background: rgba(0,123,255,0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, background 0.2s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.watch-player-placeholder:hover .watch-play-icon {
+    transform: scale(1.1);
+    background: #007bff;
+}
+
+.watch-play-icon svg {
+    width: 28px;
+    height: 28px;
+    fill: #fff;
+    margin-left: 4px;
+}
+
+.watch-placeholder-label {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.85rem;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.05em;
+}
+
+/* Badge AO VIVO */
+.live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #e02b2b;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.live-badge::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    background: #fff;
+    border-radius: 50%;
+    animation: livePulse 1.2s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+.upcoming-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0,123,255,0.15);
+    border: 1px solid rgba(0,123,255,0.4);
+    color: #5baeff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+/* Info abaixo do player */
+.watch-featured-info {
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.watch-featured-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.watch-event-label {
+    color: rgba(255,255,255,0.45);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.watch-featured-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.45rem;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.35;
+}
+
+.watch-featured-speaker {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.watch-featured-speaker strong {
+    color: rgba(255,255,255,0.85);
+}
+
+.watch-featured-time {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.45);
+    font-size: 0.82rem;
+}
+
+.watch-featured-time svg {
+    flex-shrink: 0;
+    opacity: 0.6;
+}
+
+/* ---- Episode List ---- */
+.watch-episode-list {
+    background: #13162a;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.07);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: 520px;
+}
+
+.watch-list-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    color: rgba(255,255,255,0.5);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.watch-episodes-scroll {
+    overflow-y: auto;
+    flex: 1;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.1) transparent;
+}
+
+.watch-episodes-scroll::-webkit-scrollbar {
+    width: 4px;
+}
+.watch-episodes-scroll::-webkit-scrollbar-track { background: transparent; }
+.watch-episodes-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 2px; }
+
+.watch-episode-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+}
+
+.watch-episode-item:last-child {
+    border-bottom: none;
+}
+
+.watch-episode-item:hover {
+    background: rgba(255,255,255,0.04);
+}
+
+.watch-episode-item.is-active {
+    background: rgba(0,123,255,0.1);
+    border-left: 3px solid #007bff;
+    padding-left: 17px;
+}
+
+.watch-ep-number {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.15);
+    min-width: 28px;
+    text-align: center;
+    padding-top: 2px;
+    font-family: 'Fraunces', serif;
+}
+
+.watch-episode-item.is-active .watch-ep-number {
+    color: #007bff;
+}
+
+.watch-ep-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.watch-ep-label {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.watch-ep-title {
+    font-family: 'Fraunces', serif;
+    font-size: 0.95rem;
+    color: #ffffff;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.watch-episode-item.is-active .watch-ep-title {
+    color: #fff;
+}
+
+.watch-ep-speaker {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    margin: 0;
+}
+
+.watch-ep-time {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.35);
+}
+
+/* ---- Responsivo ---- */
+@media (max-width: 960px) {
+    .watch-widget-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .watch-episode-list {
+        max-height: 360px;
+    }
+}
+
+@media (max-width: 600px) {
+    .watch-widget-section {
+        padding: 40px 20px;
+    }
+
+    .watch-widget-title {
+        font-size: 1.5rem;
+    }
+
+    .watch-featured-title {
+        font-size: 1.15rem;
+    }
+}
+
+/* Arrow do dropdown muda para branco ao scrollar */
+.nav.scrolled .arrow {
+    border-right-color: #ffffff !important;
+    border-bottom-color: #ffffff !important;
+}
+
+/* Mobile: header sempre no modo azul fixo */
+@media (max-width: 768px) {
+    .nav {
+        background-color: #1a1a2e !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .nav .ul-nav a,
+    .nav .logo-wrapper h2 {
+        color: #ffffff !important;
+    }
+
+    .nav .arrow {
+        border-right-color: #ffffff !important;
+        border-bottom-color: #ffffff !important;
+    }
+
+    .nav .nav-btn-cta {
+        color: #ffffff !important;
     }
 }
 
