@@ -355,7 +355,9 @@
 --------------------------------------------------------- */
 @media (max-width: 768px) {
     /* Intro */
-    .intro-banner { height: 200px; }
+    .intro-banner { height: 200px;
+    width: 90vw;
+    margin: 0 auto; }
     .intro-content-grid { flex-direction: column; }
     .intro-text-area { padding-right: 0; margin-bottom: 40px; }
     .intro-text-area h1 { font-size: 2.2rem; }
