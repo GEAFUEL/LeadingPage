@@ -487,42 +487,54 @@ html.lenis, html.lenis body {
         position: static;
         display: block;
         width: 100%;
-        
-        /* Animação de abrir/fechar */
         max-height: 0;
         overflow: hidden;
         opacity: 0;
         visibility: hidden;
-        
-        /* Removemos o visual de "caixa/card" */
-
+        background-color: transparent !important;
         border-radius: 0;
-        box-shadow: none;
-        border: none; /* Remove a borda da caixa */
-        
-        /* Zera margens para colar no item de cima */
+        box-shadow: none !important;
+        border: none !important;
         margin: 0;
         padding: 0;
-        
-        
     }
 
     /* Estado Aberto */
     .dropdown-menu.open {
         max-height: 500px;
-        opacity: 0;
+        opacity: 1;
         visibility: visible;
-        margin-bottom: 20px; /* Espaço apenas no final da lista inteira */
+        margin-bottom: 20px;
     }
 
     /* Itens DENTRO do Dropdown */
     .dropdown-menu li {
         margin: 0;
         width: 100%;
-        /* Removemos bordas entre os itens para ficar mais limpo */
-        border-bottom: none; 
+        border-bottom: none;
     }
 
+    .dropdown-menu a {
+        font-family: 'Google Sans', sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.6);
+        padding: 10px 0;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        background-color: transparent !important;
+        border: none !important;
+        transition: color 0.2s ease;
+    }
+
+    .dropdown-menu a:hover,
+    .dropdown-menu a:active {
+        background-color: transparent !important;
+        color: rgba(255, 255, 255, 0.9);
+        padding-left: 0;
+        border: none !important;
+    }
 }
 /* -------------------- FIM DO HEADER -------------------- */
 
