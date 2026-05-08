@@ -50,6 +50,12 @@ body {
     /* Espaço maior entre os cards */
 }
 
+/* Garante que o card não estique quando houver poucos itens */
+.cards-grid {
+    grid-template-columns: repeat(auto-fill, 380px) !important;
+    justify-content: start !important;
+}
+
 /* --- ESTRUTURA DO CARD --- */
 .group-card {
     display: flex;

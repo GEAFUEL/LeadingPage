@@ -1011,9 +1011,9 @@ body {
 /* --- GRID SYSTEM (A Mágica) --- */
 .cards-grid {
     display: grid;
-    /* Cria colunas automáticas. Mínimo 160px, Máximo 1 fração */
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
-    gap: 15px; /* Espaço entre os cards */
+    grid-template-columns: repeat(auto-fill, 360px);
+    justify-content: start; /* Itens ficam à esquerda, sem esticar */
+    gap: 15px;
 }
 
 /* --- ESTRUTURA DO CARD --- */
@@ -1033,7 +1033,7 @@ body {
 
 /* --- PARTE DE CIMA (COLORIDA) --- */
 .card-top {
-    height: 150px; /* Altura fixa para o bloco colorido */
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1041,7 +1041,21 @@ body {
     font-size: 1.5rem;
     font-weight: bold;
     letter-spacing: 1px;
-    border-radius: 8px 8px 0 0; /* Cantos arredondados só em cima */
+    border-radius: 8px 8px 0 0;
+    overflow: hidden; /* Garante que a imagem respeite o border-radius */
+    background-color: #0b0d17; /* Fallback enquanto a imagem carrega */
+}
+
+.card-top-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.group-card:hover .card-top-img {
+    transform: scale(1.05);
 }
 
 /* Classes de Cores Específicas (Inspiradas na imagem) */
