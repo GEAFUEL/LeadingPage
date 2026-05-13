@@ -1,0 +1,330 @@
+/* ============================================================
+   study-group.css — Estilos para páginas de Grupos de Estudo
+   ============================================================ */
+
+.main-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+/* ----------------------------------------------------------
+   BANNER
+---------------------------------------------------------- */
+.sg-intro {
+    margin-bottom: 60px;
+}
+
+.sg-banner {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a192f 0%, #1a3a5c 60%, #0d2137 100%);
+    display: flex;
+    align-items: flex-end;
+}
+
+.sg-banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 40%, rgba(100, 180, 255, 0.08) 0%, transparent 70%);
+}
+
+.sg-banner-content {
+    position: relative;
+    z-index: 2;
+    padding: 50px;
+}
+
+.sg-tag {
+    display: inline-block;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #64b4ff;
+    border: 1px solid rgba(100, 180, 255, 0.4);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+
+.sg-banner-content h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: #ffffff;
+    margin: 0 0 12px 0;
+    line-height: 1.15;
+}
+
+.sg-banner-content p {
+    font-family: 'Google Sans', sans-serif;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 1rem;
+    max-width: 520px;
+    margin: 0;
+}
+
+/* ----------------------------------------------------------
+   SOBRE O GRUPO
+---------------------------------------------------------- */
+.sg-about {
+    margin-bottom: 70px;
+}
+
+.sg-about-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 50px;
+    align-items: start;
+}
+
+.sg-about-text h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #2c3e50;
+    margin: 0 0 20px 0;
+}
+
+.sg-about-text p {
+    font-family: 'Google Sans', sans-serif;
+    line-height: 1.7;
+    margin-bottom: 16px;
+    text-align: justify;
+}
+
+.sg-meta-card {
+    background: #f8faff;
+    border: 1px solid #e1e8f0;
+    border-radius: 16px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.sg-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    border-bottom: 1px dashed #e0e0e0;
+    padding-bottom: 14px;
+}
+
+.sg-meta-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.sg-meta-label {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #999;
+}
+
+.sg-meta-value {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.sg-status-active {
+    color: #27ae60;
+}
+
+/* ----------------------------------------------------------
+   TÓPICOS
+---------------------------------------------------------- */
+.sg-topics {
+    margin-bottom: 70px;
+}
+
+.sg-topics h2,
+.sg-resources h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #2c3e50;
+    margin: 0 0 8px 0;
+}
+
+.sg-section-sub {
+    font-family: 'Google Sans', sans-serif;
+    color: #888;
+    margin: 0 0 36px 0;
+    font-size: 0.95rem;
+}
+
+.sg-topics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.sg-topic-card {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 16px;
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sg-topic-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+}
+
+.sg-topic-icon {
+    font-size: 1.8rem;
+    margin-bottom: 14px;
+    color: #1a3a5c;
+    font-family: 'Georgia', serif;
+}
+
+.sg-topic-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    margin: 0 0 10px 0;
+}
+
+.sg-topic-card p {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ----------------------------------------------------------
+   REFERÊNCIAS
+---------------------------------------------------------- */
+.sg-resources {
+    margin-bottom: 70px;
+}
+
+.sg-ref-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.sg-ref-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 10px;
+    border-bottom: 1px solid #f4f4f4;
+    transition: background 0.2s;
+}
+
+.sg-ref-item:last-child {
+    border-bottom: none;
+}
+
+.sg-ref-item:hover {
+    background: #fafafa;
+}
+
+.sg-ref-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.sg-ref-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-family: 'Google Sans', sans-serif;
+}
+
+.sg-ref-info strong {
+    color: #2c3e50;
+    font-size: 0.95rem;
+}
+
+.sg-ref-info span {
+    color: #888;
+    font-size: 0.85rem;
+}
+
+/* ----------------------------------------------------------
+   CTA
+---------------------------------------------------------- */
+.sg-cta {
+    margin-bottom: 80px;
+}
+
+.sg-cta-box {
+    background: linear-gradient(135deg, #0a192f, #1a3a5c);
+    border-radius: 20px;
+    padding: 60px 50px;
+    text-align: center;
+}
+
+.sg-cta-box h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #fff;
+    margin: 0 0 14px 0;
+}
+
+.sg-cta-box p {
+    font-family: 'Google Sans', sans-serif;
+    color: rgba(255, 255, 255, 0.65);
+    max-width: 500px;
+    margin: 0 auto 30px auto;
+    line-height: 1.6;
+}
+
+.sg-cta-btn {
+    display: inline-block;
+    text-decoration: none;
+    background: #fff;
+    color: #0a192f;
+    font-family: 'Google Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 14px 36px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.sg-cta-btn:hover {
+    background: #64b4ff;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* ----------------------------------------------------------
+   RESPONSIVIDADE
+---------------------------------------------------------- */
+@media (max-width: 768px) {
+    .sg-banner { height: 300px; }
+    .sg-banner-content { padding: 30px; }
+    .sg-banner-content h1 { font-size: 1.9rem; }
+
+    .sg-about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sg-topics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sg-cta-box {
+        padding: 40px 24px;
+    }
+}

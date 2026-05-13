@@ -1683,7 +1683,14 @@ body {
 .watch-widget-section {
     background-color: #0b0d17;
     padding: 60px 40px;
-    width: 100%;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    box-sizing: border-box;
+    margin-bottom: -2.5vw;
 }
 
 .watch-widget-inner {
@@ -1716,7 +1723,7 @@ body {
 
 .watch-tab-btn {
     padding: 7px 18px;
-    border-radius: 20px;
+    border-radius: 10px;
     border: 1px solid rgba(255,255,255,0.2);
     background: transparent;
     color: rgba(255,255,255,0.6);
